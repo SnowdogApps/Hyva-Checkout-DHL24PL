@@ -1,0 +1,15 @@
+{
+	"name": "snowdog/module-hyva-checkout-dhl24pl",
+	"description": "Hyva Checkout compatibility module for DHL24PL",
+	"type": "magento2-module",
+	"require": {
+	},
+	"autoload": {
+		"files": [
+			"src/registration.php"
+		],
+		"psr-4": {
+			"Snowdog\\Hyva\\Checkout\\DHL24PL\\": "src"
+		}
+	}
+}
