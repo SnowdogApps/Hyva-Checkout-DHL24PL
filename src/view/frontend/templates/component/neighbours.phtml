@@ -1,0 +1,124 @@
+<?php
+declare(strict_types=1);
+
+/** @var $magewire Neighbours */
+/** @var $escaper Escaper */
+
+/** @var $block AbstractBlock */
+
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Element\AbstractBlock;
+use Snowdog\Hyva\Checkout\DHL24PL\Magewire\Neighbours;
+
+?>
+
+<div>
+    <div class="w-full font-medium text-gray-700">
+        <label for="is_neighbours">
+            <input id="is_neighbours" name="is_neighbours" type="checkbox" wire:model="active">
+
+            <span class="hover:cursor-pointer">
+                <?= $escaper->escapeHtml(__('Dostawa do sąsiada')) ?>
+            </span>
+        </label>
+    </div>
+
+
+    <?php if ($magewire->active): ?>
+        <div class="w-full font-medium text-gray-700 mt-4">
+            <label class="label">
+                <span>
+                    <?= $escaper->escapeHtml(__('Adres sąsiada (opcjonalnie)')) ?>
+                </span>
+            </label>
+        </div>
+
+        <div class="w-full font-medium text-gray-700">
+            <label for="neighbours_name" class="label">
+                <span>
+                    <?= $escaper->escapeHtml(__('Nazwa')) ?>
+                </span>
+            </label>
+
+            <input class="block w-full form-input grow renderer-text" type="text" required="" id="neighbours_name"
+                   wire:model.lazy="fullName" />
+        </div>
+
+        <div class="w-full font-medium text-gray-700">
+            <label for="neighbours_postcode" class="label">
+                <span>
+                    <?= $escaper->escapeHtml(__('Kod pocztowy')) ?>
+                </span>
+            </label>
+
+            <input class="block w-full form-input grow renderer-text" type="text" required="" id="neighbours_postcode"
+                   wire:model.lazy="postcode" />
+        </div>
+        <div class="w-full font-medium text-gray-700">
+            <label for="neighbours_city" class="label">
+                <span>
+                    <?= $escaper->escapeHtml(__('Miejscowość')) ?>
+                </span>
+            </label>
+
+            <input class="block w-full form-input grow renderer-text" type="text" required="" id="neighbours_city"
+                   wire:model.lazy="city" />
+        </div>
+        <div class="w-full font-medium text-gray-700">
+            <label for="neighbours_street" class="label">
+                <span>
+                    <?= $escaper->escapeHtml(__('Ulica')) ?>
+                </span>
+            </label>
+
+            <input class="block w-full form-input grow renderer-text" type="text" required="" id="neighbours_street"
+                   wire:model.lazy="street" />
+        </div>
+
+        <div class="w-full font-medium text-gray-700">
+            <label for="neighbours_houseNumber" class="label">
+                <span>
+                    <?= $escaper->escapeHtml(__('Numer domu')) ?>
+                </span>
+            </label>
+
+            <input class="block w-full form-input grow renderer-text" type="text" required="" id="neighbours_houseNumber"
+                   wire:model.lazy="houseNumber" />
+        </div>
+
+        <div class="w-full font-medium text-gray-700">
+            <label for="neighbours_apartmentNumber" class="label">
+                <span>
+                    <?= $escaper->escapeHtml(__('Numer mieszkania')) ?>
+                </span>
+            </label>
+
+            <input class="block w-full form-input grow renderer-text" type="text" required="" id="neighbours_apartmentNumber"
+                   wire:model.lazy="apartmentNumber" />
+        </div>
+
+        <div class="w-full font-medium text-gray-700">
+            <label for="neighbours_phoneNumber" class="label">
+                <span>
+                    <?= $escaper->escapeHtml(__('Tel kontaktowy')) ?>
+                </span>
+            </label>
+
+            <input class="block w-full form-input grow renderer-text" type="text" required="" id="neighbours_phoneNumber"
+                   wire:model.lazy="phoneNumber" />
+        </div>
+
+        <div class="w-full font-medium text-gray-700">
+            <label for="neighbours_email" class="label">
+                <span>
+                    <?= $escaper->escapeHtml(__('Email kontaktowy')) ?>
+                </span>
+            </label>
+
+            <input class="block w-full form-input grow renderer-text" type="email" required="" id="neighbours_email"
+                   wire:model.lazy="email" />
+        </div>
+
+
+    <?php endif ?>
+</div>

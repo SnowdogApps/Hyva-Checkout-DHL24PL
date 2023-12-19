@@ -3,6 +3,7 @@
 	"description": "Hyva Checkout compatibility module for DHL24PL",
 	"type": "magento2-module",
 	"require": {
+		"myclabs/php-enum": "*"
 	},
 	"autoload": {
 		"files": [

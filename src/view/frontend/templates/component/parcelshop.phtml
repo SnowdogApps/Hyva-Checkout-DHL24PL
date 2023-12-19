@@ -1,0 +1,54 @@
+<?php
+/** @var ParcelShop $magewire */
+/** @var Escaper $escaper */
+
+use Magento\Framework\Escaper;
+use Snowdog\Hyva\Checkout\DHL24PL\Magewire\ParcelShop;
+
+$url = $magewire->getMapUrl();
+?>
+
+<div>
+    <?php if(!empty($magewire->sap)): ?>
+        <label class="label">
+            <span>Wybrany Parcelshop</span>
+        </label>
+        <div class="control p-2">
+            <span><?= $magewire->desc ?></span>
+        </div>
+    <?php endif ?>
+
+    <button
+            class="w-fit-content btn btn-secondary"
+            onClick="openPopup()"
+            type="button"
+            aria-haspopup="dialog"
+    >
+        <?= $escaper->escapeHtml(__('Wyszukaj Parcelshop na mapie')) ?>
+    </button>
+
+    <input type="hidden" id="parcelshop_sap"/>
+    <input type="hidden" id="parcelshop_zip"/>
+    <input type="hidden" id="parcelshop_city"/>
+    <div id="parceslhop_desc" hidden="hidden"></div>
+
+    <script>
+        function openPopup() {
+            var childWindow = open(
+                '<?= $escaper->escapeUrl($url) ?>',
+                "Mapa Parcelshop",
+                "status=0,toolbar=0,location=0,menubar=0,directories=0,resizable=0,scrollbars=1,width=860,height=890"
+            );
+            if (childWindow.opener == null) childWindow.opener = self;
+            childWindow.onbeforeunload = function (event) {
+                Magewire.find('<?= $magewire->id ?>').parcelshop(
+                    document.getElementById('parcelshop_sap').value,
+                    document.getElementById('parcelshop_sap').value,
+                    document.getElementById('parcelshop_sap').value,
+                    document.getElementById('parceslhop_desc').innerHTML
+                )
+            }
+        }
+
+    </script>
+</div>

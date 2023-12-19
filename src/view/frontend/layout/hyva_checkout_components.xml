@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd"
+>
+    <body>
+        <referenceBlock name="checkout.shipping.methods">
+            <block name="checkout.shipping.method.dhl_dhl24pl_parcelshop"
+                   as="dhl_dhl24pl_parcelshop"
+                   template="Snowdog_HyvaCheckoutDHL24PL::component/parcelshop.phtml">
+                <arguments>
+                    <argument name="magewire" xsi:type="object">
+                        Snowdog\Hyva\Checkout\DHL24PL\Magewire\ParcelShop
+                    </argument>
+                </arguments>
+            </block>
+            <block name="checkout.shipping.method.dhl_dhl24pl_parcelshop_cod"
+                   as="dhl_dhl24pl_parcelshop_cod"
+                   template="Snowdog_HyvaCheckoutDHL24PL::component/parcelshop.phtml">
+                <arguments>
+                    <argument name="magewire" xsi:type="object">
+                        Snowdog\Hyva\Checkout\DHL24PL\Magewire\ParcelShop
+                    </argument>
+                </arguments>
+            </block>
+            <block name="checkout.shipping.method.dhl_dhl24pl_courier"
+                   as="dhl_dhl24pl_courier"
+                   template="Snowdog_HyvaCheckoutDHL24PL::component/neighbours.phtml">
+                <arguments>
+                    <argument name="magewire" xsi:type="object">
+                        \Snowdog\Hyva\Checkout\DHL24PL\Magewire\Neighbours
+                    </argument>
+                </arguments>
+            </block>
+            <block name="checkout.shipping.method.dhl_dhl24pl_dhl12"
+                   as="dhl_dhl24pl_dhl12"
+                   template="Snowdog_HyvaCheckoutDHL24PL::component/neighbours.phtml">
+                <arguments>
+                    <argument name="magewire" xsi:type="object">
+                        \Snowdog\Hyva\Checkout\DHL24PL\Magewire\Neighbours
+                    </argument>
+                </arguments>
+            </block>
+            <block name="checkout.shipping.method.dhl_dhl24pl_dhl09"
+                   as="dhl_dhl24pl_dhl09"
+                   template="Snowdog_HyvaCheckoutDHL24PL::component/neighbours.phtml">
+                <arguments>
+                    <argument name="magewire" xsi:type="object">
+                        \Snowdog\Hyva\Checkout\DHL24PL\Magewire\Neighbours
+                    </argument>
+                </arguments>
+            </block>
+            <block name="checkout.shipping.method.dhl_dhl24pl_evening"
+                   as="dhl_dhl24pl_evening"
+                   template="Snowdog_HyvaCheckoutDHL24PL::component/neighbours.phtml">
+                <arguments>
+                    <argument name="magewire" xsi:type="object">
+                        \Snowdog\Hyva\Checkout\DHL24PL\Magewire\Neighbours
+                    </argument>
+                </arguments>
+            </block>
+            <block name="checkout.shipping.method.dhl_dhl24pl_cod"
+                   as="dhl_dhl24pl_cod"
+                   template="Snowdog_HyvaCheckoutDHL24PL::component/neighbours.phtml">
+                <arguments>
+                    <argument name="magewire" xsi:type="object">
+                        \Snowdog\Hyva\Checkout\DHL24PL\Magewire\Neighbours
+                    </argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>
