@@ -33,7 +33,7 @@ $url = $magewire->getMapUrl();
     <div id="parceslhop_desc" hidden="hidden"></div>
 
     <script>
-        function openPopup() {
+        window.openPopup = function() {
             var childWindow = open(
                 '<?= $escaper->escapeUrl($url) ?>',
                 "Mapa Parcelshop",
