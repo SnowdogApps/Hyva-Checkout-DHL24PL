@@ -63,8 +63,13 @@ class Neighbours extends Component
         ];
 
         $quote = $this->sessionCheckout->getQuote();
-        $quote->setData('dhlpl_neighbor', json_encode($data));
-        $this->quoteRepository->save($quote);
+        $quote->getResource()->getConnection()->update(
+            $quote->getResource()->getMainTable(),
+            [
+                'dhlpl_neighbor' => json_encode($data),
+            ],
+            ['entity_id = ? ' => $quote->getId()]
+        );
 
         $this->sessionCheckout->setDHL24Neighbor($data);
 

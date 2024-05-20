@@ -43,17 +43,19 @@ class ParcelShop extends Component implements EvaluationInterface
         }
 
         $quote = $this->sessionCheckout->getQuote();
-        $quote->setData(
-            'dhlpl_parcelshop',
-            json_encode(
-                [
-                    'sap' => $this->sap,
-                    'postcode' => $this->postcode,
-                    'city' => $this->city,
-                ]
-            )
+        $quote->getResource()->getConnection()->update(
+            $quote->getResource()->getMainTable(),
+            [
+                'dhlpl_parcelshop' => json_encode(
+                    [
+                        'sap' => $this->sap,
+                        'postcode' => $this->postcode,
+                        'city' => $this->city,
+                    ]
+                ),
+            ],
+            ['entity_id = ? ' => $quote->getId()]
         );
-        $this->quoteRepository->save($quote);
 
         return $resultFactory->createSuccess();
     }
