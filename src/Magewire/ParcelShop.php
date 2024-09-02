@@ -39,7 +39,8 @@ class ParcelShop extends Component implements EvaluationInterface
         }
 
         if (empty($this->sap)) {
-            return $resultFactory->createBlocking();
+            return $resultFactory->createErrorMessageEvent(__('Wybierz Parcelshop'))
+                ->withCustomEvent('shipping:method:error');
         }
 
         $quote = $this->sessionCheckout->getQuote();
