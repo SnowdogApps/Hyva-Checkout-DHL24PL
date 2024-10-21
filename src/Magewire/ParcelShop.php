@@ -52,6 +52,7 @@ class ParcelShop extends Component implements EvaluationInterface
                         'sap' => $this->sap,
                         'postcode' => $this->postcode,
                         'city' => $this->city,
+                        'desc' => $this->desc
                     ]
                 ),
             ],
